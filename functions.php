@@ -138,8 +138,8 @@ add_action( 'widgets_init', 'pgf_widgets_init' );
  * Enqueue scripts and styles.
  */
 function pgf_scripts() {
-	wp_enqueue_style( 'pgf-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'pgf-style', 'rtl', 'replace' );
+	// Enqueue Tailwind CSS output file
+	wp_enqueue_style( 'pgf-tailwind', get_template_directory_uri() . '/css/output.css', array(), _S_VERSION );
 
 	wp_enqueue_script( 'pgf-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

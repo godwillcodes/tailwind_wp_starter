@@ -1,70 +1,150 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+# Tailwind CSS WordPress Theme Starter
 
-_s
-===
+A modern WordPress theme starter template built with Tailwind CSS v4, featuring a clean development workflow and optimized build process.
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+## Features
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+- 🎨 **Tailwind CSS v4** - Latest version with PostCSS integration
+- ⚡ **Hot Reload** - Automatic CSS compilation and file watching
+- 🏗️ **Modern Build Process** - PostCSS with optimized output
+- 📱 **Responsive Ready** - Mobile-first approach with Tailwind utilities
+- 🎯 **WordPress Optimized** - Proper enqueue system and theme structure
+- 🚀 **Developer Friendly** - Clean file structure and development tools
 
-* A modern workflow with a pre-made command-line interface to turn your project into a more pleasant experience.
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A custom header implementation in `inc/custom-header.php`. Just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/template-functions.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample layouts in `sass/layouts/` made using CSS Grid for a sidebar on either side of your content. Just uncomment the layout of your choice in `sass/style.scss`.
-Note: `.no-sidebar` styles are automatically loaded.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
+## Quick Start
 
-Installation
----------------
+### Prerequisites
 
-### Requirements
+- Node.js (v16 or higher)
+- npm or yarn
+- WordPress installation
 
-`_s` requires the following dependencies:
+### Installation
 
-- [Node.js](https://nodejs.org/)
-- [Composer](https://getcomposer.org/)
+1. **Clone or download this theme** to your WordPress themes directory:
+   ```bash
+   wp-content/themes/your-theme-name/
+   ```
 
-### Quick Start
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-Clone or download this repository, change its name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a six-step find and replace on the name in all the templates.
+3. **Start development**:
+   ```bash
+   npm run dev
+   ```
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain and replace with: `'megatherium-is-awesome'`.
-2. Search for `_s_` to capture all the functions names and replace with: `megatherium_is_awesome_`.
-3. Search for `Text Domain: _s` in `style.css` and replace with: `Text Domain: megatherium-is-awesome`.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks and replace with: <code>&nbsp;Megatherium_is_Awesome</code>.
-5. Search for `_s-` to capture prefixed handles and replace with: `megatherium-is-awesome-`.
-6. Search for `_S_` (in uppercase) to capture constants and replace with: `MEGATHERIUM_IS_AWESOME_`.
+4. **Activate the theme** in your WordPress admin panel
 
-Then, update the stylesheet header in `style.css`, the links in `footer.php` with your own information and rename `_s.pot` from `languages` folder to use the theme's slug. Next, update or delete this readme.
+## Development Workflow
 
-### Setup
+### Available Scripts
 
-To start using all the tools that come with `_s`  you need to install the necessary Node.js and Composer dependencies :
+- `npm run dev` - Start development server with file watching
+- `npm run build` - Build CSS for production
 
-```sh
-$ composer install
-$ npm install
+### File Structure
+
+```
+your-theme/
+├── css/
+│   ├── input.css      # Your Tailwind CSS source file
+│   └── output.css     # Compiled CSS (auto-generated)
+├── js/
+│   └── navigation.js  # Theme JavaScript
+├── inc/               # Theme includes
+├── template-parts/    # Template parts
+├── functions.php      # Theme functions
+├── package.json       # Node.js dependencies
+├── postcss.config.mjs # PostCSS configuration
+└── .gitignore         # Git ignore rules
 ```
 
-### Available CLI commands
+### CSS Development
 
-`_s` comes packed with CLI commands tailored for WordPress theme development :
+1. **Edit your styles** in `css/input.css`:
+   ```css
+   @import "tailwindcss";
+   
+   /* Your custom styles here */
+   .my-custom-class {
+     @apply bg-blue-500 text-white p-4;
+   }
+   ```
 
-- `composer lint:wpcs` : checks all PHP files against [PHP Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/php/).
-- `composer lint:php` : checks all PHP files for syntax errors.
-- `composer make-pot` : generates a .pot file in the `languages/` directory.
-- `npm run compile:css` : compiles SASS files to css.
-- `npm run compile:rtl` : generates an RTL stylesheet.
-- `npm run watch` : watches all SASS files and recompiles them to css when they change.
-- `npm run lint:scss` : checks all SASS files against [CSS Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/css/).
-- `npm run lint:js` : checks all JavaScript files against [JavaScript Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/javascript/).
-- `npm run bundle` : generates a .zip archive for distribution, excluding development and system files.
+2. **The CSS automatically compiles** to `css/output.css` when you save
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+3. **WordPress loads the compiled CSS** through the enqueue system
 
-Good luck!
+## Customization
+
+### Adding Custom Styles
+
+Add your custom CSS classes in `css/input.css` using Tailwind's `@apply` directive:
+
+```css
+@import "tailwindcss";
+
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.card {
+  @apply bg-white shadow-lg rounded-lg p-6;
+}
+```
+
+### Theme Configuration
+
+- **Theme name**: Edit the theme header in `style.css`
+- **Functions**: Modify `functions.php` for theme functionality
+- **Templates**: Customize PHP template files as needed
+
+## Build Process
+
+The theme uses PostCSS with Tailwind CSS v4 for processing:
+
+- **Input**: `css/input.css` (your source file)
+- **Output**: `css/output.css` (compiled CSS)
+- **Watch**: Automatic recompilation on file changes
+- **Optimization**: Minified and optimized for production
+
+## WordPress Integration
+
+The theme properly integrates with WordPress:
+
+- ✅ **Enqueue System** - CSS and JS files properly loaded
+- ✅ **Theme Support** - Post thumbnails, menus, custom logo
+- ✅ **Widget Areas** - Sidebar registration
+- ✅ **HTML5 Support** - Modern markup
+- ✅ **Translation Ready** - Text domain setup
+
+## Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- IE11+ (with Tailwind CSS compatibility)
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the GPL-2.0-or-later License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For support and questions:
+- Create an issue on GitHub
+- Check the [Tailwind CSS documentation](https://tailwindcss.com/docs)
+- Review [WordPress theme development](https://developer.wordpress.org/themes/)
+
+---
+
+**Happy coding!** 🚀

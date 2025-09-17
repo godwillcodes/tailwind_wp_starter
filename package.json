@@ -15,5 +15,15 @@
   },
   "bugs": {
     "url": "https://github.com/godwillbarasa/tailwind_wp_starter/issues"
+  },
+  "scripts": {
+    "dev": "npx postcss css/input.css -o css/output.css --watch",
+    "build": "npx postcss css/input.css -o css/output.css"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^4.1.13"
   }
 }
