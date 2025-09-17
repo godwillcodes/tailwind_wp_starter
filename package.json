@@ -1,0 +1,19 @@
+{
+  "name": "tailwind_wp_starter",
+  "version": "1.0.0",
+  "description": "Custom WordPress starter theme with Tailwind CSS.",
+  "author": "Godwill Barasa",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://github.com/godwillbarasa/tailwind_wp_starter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/godwillbarasa/tailwind_wp_starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/godwillbarasa/tailwind_wp_starter/issues"
+  }
+}
